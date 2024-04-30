@@ -6,6 +6,9 @@ class Variavel:
     def set(self, v):
         self.valor = v
 
+    def printar(self):
+        print(self.valor)
+
 
 
 class Clausula:
@@ -63,15 +66,3 @@ class Clausula:
             res = res + str(i.valor) + " V "
         
         print(res)
-
-
-a = Variavel(False)
-b = Variavel(True)
-
-C = Clausula([a],[b])
-
-print("'a' está em c0: " + str(C.contem(a, True)))
-print(" 'a' está em c1: " + str(C.contem(a, False)))
-
-print("'b' está em c0: " + str(C.contem(b, True)))
-print(" 'b' está em c1: " + str(C.contem(b, False)))

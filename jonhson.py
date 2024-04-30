@@ -1,9 +1,15 @@
-from uteis import *
 from sat import *
+from random import random
 
 def aleatorio(V):
     for v in V:
-        v.set(randp(1/2))
+        if(random() < 1/2):
+            v.set(False)
+        else:
+            v.set(True)
+    
+    for v in V:
+        print(v.valor)
 
 
 def EspCond(v, i, D):
@@ -25,17 +31,16 @@ def EspCond(v, i, D):
 
 
 def nao_aleatorio(V, C):
-    D = C
-
+    D = C.copy()
     for v in V:
+
         if EspCond(v, 1, D) >= EspCond(v, 0, D):
             v.set(True)
-
             for c in D:
                 if(c.contem(v, False)):
                     D.remove(c)
                 
-                else:
+                elif (c.contem(v, True)):
                     c.c0.remove(v)
     
         else:
@@ -45,7 +50,9 @@ def nao_aleatorio(V, C):
                 if(c.contem(v, True)):
                     D.remove(c)
                 
-                else:
+                elif (c.contem(v, False)):
                     c.c1.remove(v)
 
+    for v in V:
+        print(str(v.valor))
 
