@@ -7,9 +7,6 @@ def aleatorio(V):
             v.set(False)
         else:
             v.set(True)
-    
-    for v in V:
-        print(v.valor)
 
 
 def EspCond(v, i, D):
